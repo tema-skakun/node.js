@@ -1,0 +1,26 @@
+{
+  "name": "node_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tema-skakun/node_js.git"
+  },
+  "author": "Artem Skakun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tema-skakun/node_js/issues"
+  },
+  "homepage": "https://github.com/tema-skakun/node_js#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.3",
+    "nodemon": "^3.1.0"
+  }
+}
