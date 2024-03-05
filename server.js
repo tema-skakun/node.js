@@ -28,9 +28,9 @@ app.get('/', (req, res) => {
 app.get('/contacts', (req, res) => {
   const title = 'Contacts';
   const contacts = [
-    { name: 'YouTube', link: 'http://youtube.com/YauhenKavalchuk' },
-    { name: 'Twitter', link: 'http://github.com/YauhenKavalchuk' },
-    { name: 'GitHub', link: 'http://twitter.com/YauhenKavalchuk' },
+    { name: 'YouTube', link: 'www.youtube.com/@tema_skakun' },
+    { name: 'Twitter', link: 'https://twitter.com/frederico_f1' },
+    { name: 'GitHub', link: 'https://github.com/tema-skakun' },
   ];
   res.render(createPath('contacts'), { contacts, title });
 });
