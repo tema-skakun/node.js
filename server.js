@@ -1,6 +1,16 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
+const Post = require('./models/post');
+// const { MongoClient, ServerApiVersion } = require('mongodb');
+
+const uri = "mongodb+srv://artemskakun:1373196_fF@cluster0.9p4zuje.mongodb.net/node_blog?retryWrites=true&w=majority";
+
+mongoose
+    .connect(uri)
+    .then((res) = console.log("Connected to DB"))
+    .catch((error) => console.log(error));
 
 const app = express();
 
@@ -63,14 +73,14 @@ app.get('/posts', (req, res) => {
 
 app.post('/add-post', (req, res) => {
   const { title, author, text } = req.body;
-  const post = {
-    id: new Date(),
-    date: (new Date()).toLocaleDateString(),
-    title,
-    author,
-    text,
-  };
-  res.render(createPath('post'), { post, title });
+  const post = new Post({ title, author, text });
+  post
+      .save()
+      .then((result) => res.send(result))
+      .catch((error) => {
+        console.log(error);
+        res.render(createPath('error'), { title: 'Error' });
+      })
 });
 
 app.get('/add-post', (req, res) => {
