@@ -9,4 +9,4 @@ I did:
 - learned to work with dynamic data using the Node.js template engine
 - wrote a news application with support for CRUD operations and data storage in MongoDB
 - created my own API for returning data from the database
-- uploaded the finished application to ~~Heroku~~ [Render](https://blog-node-js-rnkc.onrender.com/posts).
+- uploaded the finished application to ~~Heroku~~ [Render](https://blog-node-js-rnkc.onrender.com).
