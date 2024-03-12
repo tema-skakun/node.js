@@ -1,5 +1,5 @@
-const Contact = require("../models/contacts");
-const createPath = require('../helpers/create-path');
+import Contact from '../models/contacts.js'
+import createPath from '../helpers/create-path.js'
 
 const getContacts = (req, res) => {
   const title = 'Contacts';
@@ -7,11 +7,9 @@ const getContacts = (req, res) => {
     .find()
     .then((contacts) => res.render(createPath('contacts'), { contacts, title }))
     .catch((error) => {
-      console.log(error);
+      console.error(error);
       res.render(createPath('error'), { title: 'Error' })
     })
 };
 
-module.exports = {
-  getContacts
-};
+export { getContacts };

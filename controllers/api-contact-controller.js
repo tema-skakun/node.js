@@ -1,4 +1,4 @@
-const Contact = require("../models/contacts");
+import Contact from '../models/contacts.js'
 
 const handleError = (res, error) => {
   res.status(500).send(error.message);
@@ -11,6 +11,4 @@ const getContacts = (req, res) => {
     .catch((error) => handleError(res, error));
 };
 
-module.exports = {
-  getContacts
-};
+export { getContacts };

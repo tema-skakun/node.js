@@ -1,4 +1,4 @@
-const Post = require("../models/post");
+import Post from '../models/post.js'
 
 const handleError = (res, error) => {
   res.status(500).send(error.message);
@@ -44,7 +44,7 @@ const addPost = (req, res) => {
     .catch((error) => handleError(res, error));
 };
 
-module.exports = {
+export {
   getPost,
   deletePost,
   editPost,

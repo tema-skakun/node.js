@@ -1,5 +1,8 @@
-const path = require('path');
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-const createPath = (page) => path.resolve(__dirname, '../views', `${page}.ejs`);
-
-module.exports = createPath;
+export default function createPath(filename) {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = dirname(__filename);
+  return `${__dirname}/../views/${filename}.ejs`;
+}

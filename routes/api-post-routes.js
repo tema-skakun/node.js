@@ -1,11 +1,11 @@
-const express = require('express');
-const {
+import express from 'express';
+import {
   getPost,
   deletePost,
   editPost,
   getPosts,
   addPost
-} = require('../controllers/api-post-controller');
+} from '../controllers/api-post-controller.js';
 
 const router = express.Router();
 
@@ -20,4 +20,4 @@ router.delete('/api/post/:id', deletePost);
 // Update Post by ID
 router.put('/api/post/:id', editPost);
 
-module.exports = router;
+export default router;

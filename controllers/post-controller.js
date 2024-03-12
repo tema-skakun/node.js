@@ -1,8 +1,8 @@
-const Post = require("../models/post");
-const createPath = require('../helpers/create-path');
+import Post from '../models/post.js'
+import createPath from '../helpers/create-path.js'
 
 const handleError = (res, error) => {
-  console.log(error);
+  console.error(error);
   res.render(createPath('error'), {title: 'Error'});
 };
 
@@ -64,7 +64,7 @@ const addPost = (req, res) => {
     .catch((error) => handleError(res, error));
 };
 
-module.exports = {
+export {
   getPost,
   deletePost,
   getEditPost,

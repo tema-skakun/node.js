@@ -1,12 +1,12 @@
-const express = require('express');
-const morgan = require('morgan');
-const mongoose = require('mongoose');
-const methodOverride = require('method-override');
-const postRoutes = require('./routes/post-routes');
-const postAPIRoutes = require('./routes/api-post-routes');
-const contactRoutes = require('./routes/contact-routes');
-const contactAPIRoutes = require('./routes/api-contact-routes');
-const createPath = require('./helpers/create-path');
+import express from 'express';
+import morgan from 'morgan';
+import mongoose from 'mongoose';
+import methodOverride from 'method-override';
+import postRoutes from './routes/post-routes.js';
+import postAPIRoutes from './routes/api-post-routes.js';
+import contactRoutes from './routes/contact-routes.js';
+import contactAPIRoutes from './routes/api-contact-routes.js';
+import createPath from './helpers/create-path.js';
 
 const app = express();
 
@@ -17,11 +17,11 @@ const uri = "mongodb+srv://artemskakun:1373196_fF@cluster0.9p4zuje.mongodb.net/n
 
 mongoose
   .connect(uri)
-  .then((res) = console.log("Connected to DB"))
-  .catch((error) => console.log(error));
+  .then((res) => console.log("Connected to DB"))
+  .catch((error) => console.error(error));
 
 app.listen(PORT, (error) => {
-  error ? console.log(error) : console.log(`listening port ${PORT}`);
+  error ? console.error(error) : console.log(`listening port ${PORT}`);
 });
 
 app.use(express.urlencoded({ extended: false }));
