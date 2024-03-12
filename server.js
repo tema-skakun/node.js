@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import mongoose from 'mongoose';
 import methodOverride from 'method-override';
 import chalk from 'chalk';
+import 'dotenv/config'
 import postRoutes from './routes/post-routes.js';
 import postAPIRoutes from './routes/api-post-routes.js';
 import contactRoutes from './routes/contact-routes.js';
@@ -16,16 +17,13 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
-const PORT = 3000;
-const uri = "mongodb+srv://artemskakun:1373196_fF@cluster0.9p4zuje.mongodb.net/node_blog?retryWrites=true&w=majority";
-
 mongoose
-  .connect(uri)
+  .connect(process.env.MONGO_URL)
   .then((res) => console.log(successMsg('Connected to DB')))
   .catch((error) => console.error(errorMsg(error)));
 
-app.listen(PORT, (error) => {
-  error ? console.error(errorMsg(error)) : console.log(successMsg(`listening port ${PORT}`));
+app.listen(process.env.PORT, (error) => {
+  error ? console.error(errorMsg(error)) : console.log(successMsg(`listening port ${process.env.PORT}`));
 });
 
 app.use(express.urlencoded({ extended: false }));
